@@ -5,6 +5,22 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+
+    signingConfigs {
+        release {
+            keyAlias 'huimee'
+            keyPassword 'huimee666'
+            storeFile file('D:\\MyApplication\\android.keystore')
+            storePassword 'huimee666'
+        }
+        debug {
+            keyAlias 'huimee'
+            keyPassword 'huimee666'
+            storeFile file('D:\\MyApplication\\android.keystore')
+            storePassword 'huimee666'
+        }
+    }
+
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.huimee.myapplication"
