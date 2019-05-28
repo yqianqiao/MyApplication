@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SportProgressView">
+        <attr name="startColor" format="reference|color" />
+        <attr name="endColor" format="reference|color" />
+        <attr name="emptyColor" format="reference|color" />
+        <attr name="stepTextSize" format="reference|dimension" />
+        <attr name="progressWidth" format="reference|dimension" />
+    </declare-styleable>
+</resources>
