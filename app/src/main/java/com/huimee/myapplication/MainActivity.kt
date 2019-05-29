@@ -4,6 +4,7 @@ package com.huimee.myapplication
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.Toast
 import com.getbase.floatingactionbutton.FloatingActionsMenu
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -15,12 +16,13 @@ class MainActivity : AppCompatActivity() {
 
         menu.setOnFloatingActionsMenuUpdateListener(object: FloatingActionsMenu.OnFloatingActionsMenuUpdateListener {
             override fun onMenuCollapsed() {
-                Log.e("onMenuCollapsed","bbbb")
+              Toast.makeText(this@MainActivity,"关闭",Toast.LENGTH_LONG).show()
             }
 
             override fun onMenuExpanded() {
-                Log.e("onMenuExpanded","bbbb")
+                Toast.makeText(this@MainActivity,BuildConfig.text,Toast.LENGTH_LONG).show()
             }
         })
     }
+
 }

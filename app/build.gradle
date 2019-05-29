@@ -4,22 +4,19 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+
 android {
 
     signingConfigs {
-        release {
+        config {
             keyAlias 'huimee'
             keyPassword 'huimee666'
             storeFile file('D:\\MyApplication\\android.keystore')
             storePassword 'huimee666'
-        }
-        debug {
-            keyAlias 'huimee'
-            keyPassword 'huimee666'
-            storeFile file('D:\\MyApplication\\android.keystore')
-            storePassword 'huimee666'
+            flavorDimensions "versionCode"
         }
     }
+    flavorDimensions "market"
 
     compileSdkVersion 28
     defaultConfig {
@@ -34,8 +31,20 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "text", "${TEXT}")
+        }
+        debug{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "text", "${TEXT}")
         }
     }
+
+//    applicationVariants.all { variant ->
+//        variant.outputs.all { output ->
+//            outputFileName = variant.productFlavors[0].name + new Date().format('yyyyMMddHHmmss') + '-' + variant.buildType.name + '.apk'
+//        }
+//    }
 
 }
 
@@ -50,8 +59,6 @@ dependencies {
     implementation 'com.github.DingMouRen:LayoutManagerGroup:1e6f4f96eb'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'com.getbase:floatingactionbutton:1.10.1'
-
-
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
